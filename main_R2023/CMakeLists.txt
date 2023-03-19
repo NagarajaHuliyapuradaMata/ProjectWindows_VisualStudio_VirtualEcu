@@ -20,18 +20,18 @@ add_definitions(
 
 add_executable(
    Windows_VisualStudio_VirtualEcu_R2023
-   ${PROJECT_SOURCE_DIR}/source/ServiceDcm/ServiceDcm.cpp
-   ${PROJECT_SOURCE_DIR}/source/ServiceDem/ServiceDem.cpp
-   ${PROJECT_SOURCE_DIR}/source/ServiceDet/ServiceDet.cpp
-   ${PROJECT_SOURCE_DIR}/source/ServiceNvM/ServiceNvM.cpp
-   ${PROJECT_SOURCE_DIR}/source/ServiceCanSm/ServiceCanSm.cpp
-   ${PROJECT_SOURCE_DIR}/source/ServiceCom/ServiceCom.cpp
-   ${PROJECT_SOURCE_DIR}/source/ServiceComM/ServiceComM.cpp
-   ${PROJECT_SOURCE_DIR}/source/ServicePduR/ServicePduR.cpp
-   ${PROJECT_SOURCE_DIR}/source/ServiceStartUp/ServiceStartUp.cpp
+   ${PROJECT_SOURCE_DIR}/source/ServiceDcm/ServiceSwcDcm.cpp
+   ${PROJECT_SOURCE_DIR}/source/ServiceDem/ServiceSwcDem.cpp
+   ${PROJECT_SOURCE_DIR}/source/ServiceDet/ServiceSwcDet.cpp
+   ${PROJECT_SOURCE_DIR}/source/ServiceNvM/ServiceSwcNvM.cpp
+   ${PROJECT_SOURCE_DIR}/source/EcuabCanTp/ServiceSwcCanTp.cpp
+   ${PROJECT_SOURCE_DIR}/source/ServiceCanSm/ServiceSwcCanSm.cpp
+   ${PROJECT_SOURCE_DIR}/source/ServiceCom/ServiceSwcCom.cpp
+   ${PROJECT_SOURCE_DIR}/source/ServiceComM/ServiceSwcComM.cpp
+   ${PROJECT_SOURCE_DIR}/source/ServicePduR/ServiceSwcPduR.cpp
+   ${PROJECT_SOURCE_DIR}/source/ServiceStartUp/ServiceSwcStartUp.cpp
    ${PROJECT_SOURCE_DIR}/source/ServiceSwcEcuM/ServiceSwcEcuM.cpp
    ${PROJECT_SOURCE_DIR}/source/EcuabCanIf/EcuabCanIf.cpp
-   ${PROJECT_SOURCE_DIR}/source/EcuabCanTp/EcuabCanTp.cpp
    ${PROJECT_SOURCE_DIR}/source/EcuabFee/EcuabFee.cpp
    ${PROJECT_SOURCE_DIR}/source/McalAdc/McalAdc.cpp
    ${PROJECT_SOURCE_DIR}/source/McalCan/McalCan.cpp
@@ -40,8 +40,14 @@ add_executable(
    ${PROJECT_SOURCE_DIR}/source/McalGpt/McalGpt.cpp
    ${PROJECT_SOURCE_DIR}/source/McalWdg/McalWdg.cpp
 
-   ${PROJECT_SOURCE_DIR}/source/wrappers/wrappers.cpp
+   ${PROJECT_SOURCE_DIR}/source/ProjectCfg/CfgEcuabCanIf.cpp
+   ${PROJECT_SOURCE_DIR}/source/ProjectCfg/CfgServiceSwcDcm.cpp
+
    ${PROJECT_SOURCE_DIR}/source/wrappers/CalloutStubsServiceSwcEcuM.cpp
+   ${PROJECT_SOURCE_DIR}/source/wrappers/CalloutStubsServiceSwcOs.cpp
+
+   ${PROJECT_SOURCE_DIR}/source/wrappers/wrappers.cpp
+
 )
 
 target_include_directories(
