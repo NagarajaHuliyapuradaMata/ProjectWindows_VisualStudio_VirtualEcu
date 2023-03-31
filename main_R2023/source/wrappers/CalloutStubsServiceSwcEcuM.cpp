@@ -92,7 +92,7 @@ FUNC(void, SERVICESWCECUM_CODE) CalloutStubsServiceSwcEcuM_DriverInitOne(
    infServiceSwcCanSmServiceSwcEcuM_InitFunction (Cfg_lptr->CfgServiceSwcCanSm_ptr);
    infServiceSwcPduRServiceSwcEcuM_InitFunction  (Cfg_lptr->CfgServiceSwcPduR_ptr);
    infServiceSwcComServiceSwcEcuM_InitFunction   (Cfg_lptr->CfgServiceSwcCom_ptr);
-   infServiceSwcDcmServiceSwcEcuM_InitFunction();
+   infServiceSwcDcmServiceSwcEcuM_InitFunction   (Cfg_lptr->CfgServiceSwcDcm_ptr);
    infServiceSwcDemServiceSwcEcuM_InitFunction();
 }
 
