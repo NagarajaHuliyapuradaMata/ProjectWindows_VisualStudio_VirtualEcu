@@ -1,13 +1,14 @@
-#pragma once
 /******************************************************************************/
-/* File   : CalloutStubsServiceSwcOs.hpp                                      */
+/* File   : CalloutStubsSwcServiceOs.cpp                                      */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "CompilerCfg_ServiceSwcOs.hpp"
+#include "Std_Types.hpp"
+
+#include "CalloutStubsSwcServiceOs.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -36,7 +37,7 @@
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-extern FUNC(void, SERVICESWCOS_CODE) CalloutStubsServiceSwcOs_InitializeVectorTable(void);
+FUNC(void, SWCSERVICEOS_CODE) CalloutStubsSwcServiceOs_InitializeVectorTable(void){}
 
 /******************************************************************************/
 /* EOF                                                                        */

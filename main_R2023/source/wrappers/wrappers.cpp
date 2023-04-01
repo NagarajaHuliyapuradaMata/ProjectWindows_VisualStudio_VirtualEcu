@@ -1,6 +1,6 @@
 #include "Std_Types.hpp"
 
-#include "CompilerCfg_ServiceSwcOs.hpp"
+#include "CompilerCfg_SwcServiceOs.hpp"
 
 /******************************************************************************/
 //TBD: START - Os.hpp
@@ -27,10 +27,10 @@ TASK(TASK_10ms);
 TASK(TASK_50ms);
 TASK(TASK_200ms);
 TASK(TASK_1s);
-FUNC(void, SERVICESWCOS_CODE) CallbackServiceSwcOs_HookStartup      (void);
-FUNC(void, SERVICESWCOS_CODE) CallbackServiceSwcOs_HookShutdown     (void);
-FUNC(void, SERVICESWCOS_CODE) CallbackServiceSwcOs_HookError        (void);
-FUNC(void, SERVICESWCOS_CODE) CallbackServiceSwcOs_HookStackOverrun (void);
+FUNC(void, SWCSERVICEOS_CODE) CallbackSwcServiceOs_HookStartup      (void);
+FUNC(void, SWCSERVICEOS_CODE) CallbackSwcServiceOs_HookShutdown     (void);
+FUNC(void, SWCSERVICEOS_CODE) CallbackSwcServiceOs_HookError        (void);
+FUNC(void, SWCSERVICEOS_CODE) CallbackSwcServiceOs_HookStackOverrun (void);
 
 /******************************************************************************/
 //TBD: END
@@ -89,35 +89,35 @@ ISR(CAT2ISR_Undefined){
 TASK(TASK_Init){
 /*
    ApplSwcProjectX_InitFunction();
-   ServiceSwcOs_TerminateTask();
+   SwcServiceOs_TerminateTask();
 */
 }
 
 TASK(TASK_CanRx){
 }
 
-#include "infMcalCanServiceSwcSchM.hpp"
+#include "infMcalCanSwcServiceSchM.hpp"
 TASK(TASK_10ms){
-   infMcalCanServiceSwcSchM_MainFunction();
+   infMcalCanSwcServiceSchM_MainFunction();
 
 #if(0)
    //TBD: Check sequence for logical correctness
-   infServiceComServiceSwcSchM_MainFunctionTx();
-   infServiceCanSmServiceSwcSchM_MainFunction();
-   infServiceComMServiceSwcSchM_MainFunction();
-   infServiceComServiceSwcSchM_MainFunctionRx();
-   infServiceSwcCanTpServiceSwcSchM_MainFunction(); //TBD: Special case - only Dcm is CanTp's client ==> PduR is bypassed!
-   infServiceDcmServiceSwcSchM_MainFunction();
-   infServiceDemServiceSwcSchM_MainFunction();
-   infServiceSwcEcuMServiceSwcSchM_MainFunction();
+   infServiceComSwcServiceSchM_MainFunctionTx();
+   infServiceCanSmSwcServiceSchM_MainFunction();
+   infServiceComMSwcServiceSchM_MainFunction();
+   infServiceComSwcServiceSchM_MainFunctionRx();
+   infSwcServiceCanTpSwcServiceSchM_MainFunction(); //TBD: Special case - only Dcm is CanTp's client ==> PduR is bypassed!
+   infServiceDcmSwcServiceSchM_MainFunction();
+   infServiceDemSwcServiceSchM_MainFunction();
+   infSwcServiceEcuMSwcServiceSchM_MainFunction();
 
-   infServiceNvMServiceSwcSchM_MainFunction(); //TBD: Assumption - only top-down approach is sufficient in run-time execution
-   infEcuabFeeServiceSwcSchM_MainFunction();
-   infMcalFlsServiceSwcSchM_MainFunction();
+   infServiceNvMSwcServiceSchM_MainFunction(); //TBD: Assumption - only top-down approach is sufficient in run-time execution
+   infEcuabFeeSwcServiceSchM_MainFunction();
+   infMcalFlsSwcServiceSchM_MainFunction();
 
-   infMcalWdgServiceSwcSchM_MainFunction();
+   infMcalWdgSwcServiceSchM_MainFunction();
 
-   ServiceSwcOs_TerminateTask();
+   SwcServiceOs_TerminateTask();
 #endif
 }
 
@@ -130,16 +130,16 @@ TASK(TASK_200ms){
 TASK(TASK_1s){
 }
 
-FUNC(void, SERVICESWCOS_CODE) CallbackServiceSwcOs_HookStartup(void){
+FUNC(void, SWCSERVICEOS_CODE) CallbackSwcServiceOs_HookStartup(void){
 }
 
-FUNC(void, SERVICESWCOS_CODE) CallbackServiceSwcOs_HookShutdown(void){
+FUNC(void, SWCSERVICEOS_CODE) CallbackSwcServiceOs_HookShutdown(void){
 }
 
-FUNC(void, SERVICESWCOS_CODE) CallbackServiceSwcOs_HookError(void){
+FUNC(void, SWCSERVICEOS_CODE) CallbackSwcServiceOs_HookError(void){
 }
 
-FUNC(void, SERVICESWCOS_CODE) CallbackServiceSwcOs_HookStackOverrun(void){
+FUNC(void, SWCSERVICEOS_CODE) CallbackSwcServiceOs_HookStackOverrun(void){
 }
 
 /******************************************************************************/

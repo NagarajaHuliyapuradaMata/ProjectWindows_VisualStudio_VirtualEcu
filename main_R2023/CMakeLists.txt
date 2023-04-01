@@ -23,23 +23,23 @@ add_executable(
 
    ${PROJECT_SOURCE_DIR}/source/wrappers/wrappers.cpp
 
-   ${PROJECT_SOURCE_DIR}/source/wrappers/CalloutStubsServiceSwcEcuM.cpp
-   ${PROJECT_SOURCE_DIR}/source/wrappers/CalloutStubsServiceSwcOs.cpp
+   ${PROJECT_SOURCE_DIR}/source/wrappers/CalloutStubsSwcServiceEcuM.cpp
+   ${PROJECT_SOURCE_DIR}/source/wrappers/CalloutStubsSwcServiceOs.cpp
 
-   ${PROJECT_SOURCE_DIR}/source/ProjectCfg/CfgServiceSwcDcm.cpp
+   ${PROJECT_SOURCE_DIR}/source/ProjectCfg/CfgSwcServiceDcm.cpp
    ${PROJECT_SOURCE_DIR}/source/ProjectCfg/CfgEcuabCanIf.cpp
 
-   ${PROJECT_SOURCE_DIR}/source/ServiceSwcCanSm/ServiceSwcCanSm.cpp
-   ${PROJECT_SOURCE_DIR}/source/ServiceSwcCanTp/ServiceSwcCanTp.cpp
-   ${PROJECT_SOURCE_DIR}/source/ServiceSwcCom/ServiceSwcCom.cpp
-   ${PROJECT_SOURCE_DIR}/source/ServiceSwcComM/ServiceSwcComM.cpp
-   ${PROJECT_SOURCE_DIR}/source/ServiceSwcDcm/ServiceSwcDcm.cpp
-   ${PROJECT_SOURCE_DIR}/source/ServiceSwcDem/ServiceSwcDem.cpp
-   ${PROJECT_SOURCE_DIR}/source/ServiceSwcDet/ServiceSwcDet.cpp
-   ${PROJECT_SOURCE_DIR}/source/ServiceSwcEcuM/ServiceSwcEcuM.cpp
-   ${PROJECT_SOURCE_DIR}/source/ServiceSwcNvM/ServiceSwcNvM.cpp
-   ${PROJECT_SOURCE_DIR}/source/ServiceSwcPduR/ServiceSwcPduR.cpp
-   ${PROJECT_SOURCE_DIR}/source/ServiceSwcStartUp/ServiceSwcStartUp.cpp
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceCanSm/SwcServiceCanSm.cpp
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceCanTp/SwcServiceCanTp.cpp
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceCom/SwcServiceCom.cpp
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceComM/SwcServiceComM.cpp
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceDcm/SwcServiceDcm.cpp
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceDem/SwcServiceDem.cpp
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceDet/SwcServiceDet.cpp
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceEcuM/SwcServiceEcuM.cpp
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceNvM/SwcServiceNvM.cpp
+   ${PROJECT_SOURCE_DIR}/source/SwcServicePduR/SwcServicePduR.cpp
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceStartUp/SwcServiceStartUp.cpp
 
    ${PROJECT_SOURCE_DIR}/source/EcuabCanIf/EcuabCanIf.cpp
    ${PROJECT_SOURCE_DIR}/source/EcuabFee/EcuabFee.cpp
@@ -61,17 +61,17 @@ target_include_directories(
    "${PROJECT_SOURCE_DIR}/source/ProjectCompiler"
    "${PROJECT_SOURCE_DIR}/source/ProjectCfg"
 
-   "${PROJECT_SOURCE_DIR}/source/ServiceSwcCanSm"
-   "${PROJECT_SOURCE_DIR}/source/ServiceSwcCanTp"
-   "${PROJECT_SOURCE_DIR}/source/ServiceSwcCom"
-   "${PROJECT_SOURCE_DIR}/source/ServiceSwcComM"
-   "${PROJECT_SOURCE_DIR}/source/ServiceSwcDcm"
-   "${PROJECT_SOURCE_DIR}/source/ServiceSwcDem"
-   "${PROJECT_SOURCE_DIR}/source/ServiceSwcDet"
-   "${PROJECT_SOURCE_DIR}/source/ServiceSwcEcuM"
-   "${PROJECT_SOURCE_DIR}/source/ServiceSwcNvM"
-   "${PROJECT_SOURCE_DIR}/source/ServiceSwcPduR"
-   "${PROJECT_SOURCE_DIR}/source/ServiceSwcStartUp"
+   "${PROJECT_SOURCE_DIR}/source/SwcServiceCanSm"
+   "${PROJECT_SOURCE_DIR}/source/SwcServiceCanTp"
+   "${PROJECT_SOURCE_DIR}/source/SwcServiceCom"
+   "${PROJECT_SOURCE_DIR}/source/SwcServiceComM"
+   "${PROJECT_SOURCE_DIR}/source/SwcServiceDcm"
+   "${PROJECT_SOURCE_DIR}/source/SwcServiceDem"
+   "${PROJECT_SOURCE_DIR}/source/SwcServiceDet"
+   "${PROJECT_SOURCE_DIR}/source/SwcServiceEcuM"
+   "${PROJECT_SOURCE_DIR}/source/SwcServiceNvM"
+   "${PROJECT_SOURCE_DIR}/source/SwcServicePduR"
+   "${PROJECT_SOURCE_DIR}/source/SwcServiceStartUp"
 
    "${PROJECT_SOURCE_DIR}/source/EcuabCanIf"
    "${PROJECT_SOURCE_DIR}/source/EcuabFee"
