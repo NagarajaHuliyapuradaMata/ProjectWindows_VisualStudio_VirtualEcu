@@ -50,6 +50,7 @@
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
+uint32 gu32SystemTime = 0;
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
@@ -110,6 +111,12 @@ TASK(TASK_Init){
 TASK(TASK_CanRx){
 }
 
+TASK(TASK_1ms){
+}
+
+TASK(TASK_5ms){
+}
+
 #include "infMcalCanSwcServiceSchM.hpp"
 TASK(TASK_10ms){
    infMcalCanSwcServiceSchM_MainFunction();
@@ -135,6 +142,12 @@ TASK(TASK_10ms){
 #endif
 }
 
+TASK(TASK_20ms){
+}
+
+TASK(TASK_25ms){
+}
+
 TASK(TASK_50ms){
 }
 
@@ -145,6 +158,42 @@ TASK(TASK_1s){
 }
 
 TASK(TASK_Idle){
+#if(STD_ON == _ReSIM)
+   ReSimCmd_MainFunction();
+#else
+#endif
+
+   const  uint32 lu32PrescaleSystem = 100000000;
+   const  uint8  lu8Prescale5ms     = 5; //TBD: hardcode after SIL testing
+   const  uint8  lu8Prescale10ms    = 2;
+   const  uint8  lu8Prescale20ms    = 2;
+   const  uint8  lu8Prescale25ms    = 5;
+   static uint32 lu32TickSystem     = 0;
+   static uint8  lu8Tick5ms         = 0;
+   static uint8  lu8Tick10ms        = 0;
+   static uint8  lu8Tick20ms        = 0;
+   static uint8  lu8Tick25ms        = 0;
+   if(lu32PrescaleSystem == ++lu32TickSystem){
+      lu32TickSystem = 0;
+      gu32SystemTime++;
+      if(lu8Prescale5ms == ++lu8Tick5ms){
+         lu8Tick5ms = 0;
+         if(lu8Prescale25ms == ++lu8Tick25ms){
+            lu8Tick25ms = 0;
+            Os_Entry_TASK_25ms();
+         }
+         if(lu8Prescale10ms == ++lu8Tick10ms){
+            lu8Tick10ms = 0;
+            if(lu8Prescale20ms == ++lu8Tick20ms){
+               lu8Tick20ms = 0;
+               Os_Entry_TASK_20ms();
+            }
+            Os_Entry_TASK_10ms();
+         }
+         Os_Entry_TASK_5ms();
+      }
+      Os_Entry_TASK_1ms();
+   }
 }
 
 FUNC(void, SWCSERVICEOS_CODE) CalloutStubsSwcServiceOs_HookStartup(void){
@@ -159,7 +208,8 @@ FUNC(void, SWCSERVICEOS_CODE) CalloutStubsSwcServiceOs_HookError(void){
 FUNC(void, SWCSERVICEOS_CODE) CalloutStubsSwcServiceOs_HookStackOverrun(void){
 }
 
-FUNC(void, SWCSERVICEOS_CODE) CalloutStubsSwcServiceOs_InitializeVectorTable(void){}
+FUNC(void, SWCSERVICEOS_CODE) CalloutStubsSwcServiceOs_InitializeVectorTable(void){
+}
 
 /******************************************************************************/
 /* EOF                                                                        */
