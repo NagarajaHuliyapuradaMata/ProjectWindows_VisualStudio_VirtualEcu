@@ -27,6 +27,7 @@ add_executable(
    ${PROJECT_SOURCE_DIR}/source/wrappers/CalloutStubsSwcServiceOs.cpp
 
    ${PROJECT_SOURCE_DIR}/source/ProjectCfg/CfgSwcServiceDcm.cpp
+   ${PROJECT_SOURCE_DIR}/source/ProjectCfg/CfgSwcServiceEcuM.cpp
    ${PROJECT_SOURCE_DIR}/source/ProjectCfg/CfgEcuabCanIf.cpp
 
    ${PROJECT_SOURCE_DIR}/source/SwcServiceCanSm/SwcServiceCanSm.cpp
@@ -38,6 +39,7 @@ add_executable(
    ${PROJECT_SOURCE_DIR}/source/SwcServiceDet/SwcServiceDet.cpp
    ${PROJECT_SOURCE_DIR}/source/SwcServiceEcuM/SwcServiceEcuM.cpp
    ${PROJECT_SOURCE_DIR}/source/SwcServiceNvM/SwcServiceNvM.cpp
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceOs/SwcServiceOs.cpp
    ${PROJECT_SOURCE_DIR}/source/SwcServicePduR/SwcServicePduR.cpp
    ${PROJECT_SOURCE_DIR}/source/SwcServiceStartUp/SwcServiceStartUp.cpp
 
@@ -70,6 +72,7 @@ target_include_directories(
    "${PROJECT_SOURCE_DIR}/source/SwcServiceDet"
    "${PROJECT_SOURCE_DIR}/source/SwcServiceEcuM"
    "${PROJECT_SOURCE_DIR}/source/SwcServiceNvM"
+   "${PROJECT_SOURCE_DIR}/source/SwcServiceOs"
    "${PROJECT_SOURCE_DIR}/source/SwcServicePduR"
    "${PROJECT_SOURCE_DIR}/source/SwcServiceStartUp"
 
