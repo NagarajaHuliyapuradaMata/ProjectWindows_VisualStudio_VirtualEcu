@@ -25,6 +25,7 @@
 /******************************************************************************/
 #include "Std_Types.hpp"
 
+#include "CfgSwcServiceEcuM.hpp"
 #include "CalloutStubsSwcServiceEcuM.hpp"
 
 #include "infEcuabCanIfSwcServiceEcuM.hpp"
@@ -44,7 +45,6 @@
 #include "infSwcServiceDetSwcServiceEcuM.hpp"
 #include "infSwcServiceNvMSwcServiceEcuM.hpp"
 #include "infSwcServicePduRSwcServiceEcuM.hpp"
-
 #include "CalloutStubsSwcServiceOs.hpp"
 
 /******************************************************************************/

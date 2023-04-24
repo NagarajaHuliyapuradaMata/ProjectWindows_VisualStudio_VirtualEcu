@@ -37,17 +37,21 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-typedef uint32 McalCan_tIdFrameExtended;
+typedef enum{
+      CfgEcuabCanIf_IdCanFrameExtendedRxUdsFunctional  = 0x700
+   ,  CfgEcuabCanIf_IdCanFrameExtendedRxUdsPhysical    = 0x300
+   ,  CfgEcuabCanIf_IdCanFrameExtendedRxBcmVehicleInfo = 0x100
+}McalCan_teIdFrameExtended;
 
 typedef struct{
-   McalCan_tIdFrameExtended IdCan  : 29;
-   uint32                   THLEN  :  1;
-   uint32                   RTR    :  1;
-   uint32                   IDE    :  1;
-   uint32                   TS     : 16;
-   uint32                   LBL    : 12;
-   uint32                   DLC    :  4;
-   uint8                    data[8];
+   McalCan_teIdFrameExtended IdCan; //TBD union  : 29;
+   uint32                    THLEN  :  1;
+   uint32                    RTR    :  1;
+   uint32                    IDE    :  1;
+   uint32                    TS     : 16;
+   uint32                    LBL    : 12;
+   uint32                    DLC    :  4;
+   uint8                     data[8];
 }McalCan_tstFrameExtended;
 
 typedef union{
@@ -66,7 +70,6 @@ typedef union{
 /* OBJECTS                                                                    */
 /******************************************************************************/
 extern McalCan_tstRxFifioElement McalCan_astRxFifio[McalCan_LengthBuffer];
-
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
