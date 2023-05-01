@@ -120,6 +120,29 @@ FUNC(void, SWCSERVICEECUM_CODE) CalloutStubsSwcServiceEcuM_DriverInitOne(
 FUNC(void, SWCSERVICEECUM_CODE) CalloutStubsSwcServiceEcuM_SetDefinedMcuWakeupSource(void){}
 FUNC(void, SWCSERVICEECUM_CODE) CalloutStubsSwcServiceEcuM_SwitchOsAppMode(void){}
 
+FUNC(void, SWCSERVICEECUM_CODE) CalloutStubsSwcServiceEcuM_Shutdown(void){
+   infSwcServiceDemSwcServiceEcuM_DeInitFunction();
+   infSwcServiceDcmSwcServiceEcuM_DeInitFunction();
+   infSwcServiceComSwcServiceEcuM_DeInitFunction();
+   infSwcServicePduRSwcServiceEcuM_DeInitFunction();
+   infSwcServiceCanSmSwcServiceEcuM_DeInitFunction();
+   infSwcServiceComMSwcServiceEcuM_DeInitFunction();
+   infSwcServiceCanTpSwcServiceEcuM_DeInitFunction();
+   infEcuabCanIfSwcServiceEcuM_DeInitFunction();
+   infSwcServiceDetSwcServiceEcuM_DeInitFunction();
+
+   infSwcServiceNvMSwcServiceEcuM_WriteAll();
+
+   infSwcServiceNvMSwcServiceEcuM_DeInitFunction();
+   infEcuabFeeSwcServiceEcuM_DeInitFunction();
+   infMcalWdgSwcServiceEcuM_DeInitFunction();
+   infMcalCanSwcServiceEcuM_DeInitFunction();
+   infMcalAdcSwcServiceEcuM_DeInitFunction();
+   infMcalFlsSwcServiceEcuM_DeInitFunction();
+   infMcalDioSwcServiceEcuM_DeInitFunction();
+   infMcalGptSwcServiceEcuM_DeInitFunction();
+}
+
 /******************************************************************************/
 /* EOF                                                                        */
 /******************************************************************************/

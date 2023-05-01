@@ -76,6 +76,7 @@ extern FUNC(void, SWCSERVICEECUM_CODE) CalloutStubsSwcServiceEcuM_CheckPbConfigu
 extern FUNC(void, SWCSERVICEECUM_CODE) CalloutStubsSwcServiceEcuM_DriverInitOne(const CfgSwcServiceEcuM_tst* CfgSwcServiceEcuM_lptr);
 extern FUNC(void, SWCSERVICEECUM_CODE) CalloutStubsSwcServiceEcuM_SetDefinedMcuWakeupSource(void);
 extern FUNC(void, SWCSERVICEECUM_CODE) CalloutStubsSwcServiceEcuM_SwitchOsAppMode(void);
+extern FUNC(void, SWCSERVICEECUM_CODE) CalloutStubsSwcServiceEcuM_Shutdown(void);
 
 /******************************************************************************/
 /* EOF                                                                        */
