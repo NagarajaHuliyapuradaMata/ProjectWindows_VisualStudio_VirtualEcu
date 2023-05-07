@@ -118,10 +118,8 @@ TASK(TASK_5ms){
 }
 
 #include "infMcalCanSwcServiceSchM.hpp"
-extern void infSwcServiceOs_RequestShutdown(void); //TBD: Need interface?
 TASK(TASK_10ms){
    infMcalCanSwcServiceSchM_MainFunction();
-   infSwcServiceOs_RequestShutdown();
 
 #if(0)
    //TBD: Check sequence for logical correctness
