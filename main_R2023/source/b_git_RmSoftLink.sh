@@ -1,5 +1,6 @@
 git rm -f EcuabCanIf
 git rm -f EcuabFee
+git rm -f LibAutosar
 git rm -f McalAdc
 git rm -f McalCan
 git rm -f McalDio

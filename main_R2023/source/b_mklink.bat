@@ -1,5 +1,6 @@
 MKLINK /D EcuabCanIf        ..\..\..\..\repo_submodules\EcuabCanIf\VirtualECU_R2023
 MKLINK /D EcuabFee          ..\..\..\..\repo_submodules\EcuabFee\VirtualECU_R2023
+MKLINK /D LibAutosar        ..\..\..\..\repo_submodules\LibAutosar\p_VirtualEcu_R2023
 MKLINK /D McalAdc           ..\..\..\..\repo_submodules\McalAdc\VirtualMachine_R2023
 MKLINK /D McalCan           ..\..\..\..\repo_submodules\McalCan\VirtualMachine_R2023
 MKLINK /D McalDio           ..\..\..\..\repo_submodules\McalDio\VirtualMachine_R2023

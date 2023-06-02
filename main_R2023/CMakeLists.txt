@@ -53,7 +53,7 @@ add_executable(
    ${PROJECT_SOURCE_DIR}/source/McalGpt/McalGpt.cpp
    ${PROJECT_SOURCE_DIR}/source/McalWdg/McalWdg.cpp
 
-   ${PROJECT_SOURCE_DIR}/source/wrappers/LibAutosarFifo.cpp
+   ${PROJECT_SOURCE_DIR}/source/LibAutosar/LibAutosarFifo.cpp
 
 )
 
@@ -86,6 +86,7 @@ target_include_directories(
    "${PROJECT_SOURCE_DIR}/source/McalGpt"
    "${PROJECT_SOURCE_DIR}/source/McalWdg"
 
+   "${PROJECT_SOURCE_DIR}/source/LibAutosar"
    "${PROJECT_SOURCE_DIR}/source/wrappers"
 
 )
