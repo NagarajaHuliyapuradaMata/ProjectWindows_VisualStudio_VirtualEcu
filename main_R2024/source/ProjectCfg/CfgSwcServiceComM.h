@@ -1,7 +1,7 @@
-#ifndef _CFGSWCSERVICEDCM_H
-#define _CFGSWCSERVICEDCM_H
+#ifndef _CFGSWCSERVICECOMM_H
+#define _CFGSWCSERVICECOMM_H
 /******************************************************************************/
-/* File   : CfgSwcServiceDcm.h                                                */
+/* File   : CfgSwcServiceComM.h                                               */
 /*                                                                            */
 /* Author : Raajnaag HULIYAPURADA MATA                                        */
 /*                                                                            */
@@ -15,39 +15,36 @@
 /* certain responsibilities, if you distribute copies of the software, or if  */
 /* you modify it: responsibilities to respect the freedom of others.          */
 /*                                                                            */
-/* All rights reserved. Copyright Â© 1982 Raajnaag HULIYAPURADA MATA           */
+/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
 /*                                                                            */
 /* Always refer latest software version from:                                 */
-/* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
+/* git@github.com:RaajnaagHuliyapuradaMata/<module_name>.git                  */
 /*                                                                            */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
+#include "Types_SwcServiceComM.h"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define CfgSwcServiceDcm_dbEnable                                             1u
-#define CfgSwcServiceDcm_dbDisable                                            0u
-#define CfgSwcServiceDcm_fAdaptiveDiagnostics         CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcm_fSharingPduRx                CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcm_fProcessingParallel          CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcm_fQueueBuffer                 CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcm_fRoe                         CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcm_fRdpi                        CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcm_fPagedBuffer                 CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcm_fKwp                         CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcm_fPBcfg                       CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcmDsld_fModeRuleService         CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcmDsld_fModeRuleSubService      CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcmDsld_fCallApplRxRequest       CfgSwcServiceDcm_dbEnable
+#define COMM_MODULE_ID                                                       12u
+#define COMM_VENDOR_ID                                                        6u
+#define COMM_AR_RELEASE_MAJOR_VERSION                                         4u
+#define COMM_AR_RELEASE_MINOR_VERSION                                         2u
+#define COMM_AR_RELEASE_REVISION_VERSION                                      2u
+#define COMM_SW_MAJOR_VERSION                                                 9u
+#define COMM_SW_MINOR_VERSION                                                 0u
+#define COMM_SW_PATCH_VERSION                                                 0u
+#define COMM_VARIANT_PRECOMPILE                                             0x00
+#define COMM_VARIANT_POSTBUILD_LOADABLE                                     0x01
+#define COMM_CONFIGURATION_VARIANT                       COMM_VARIANT_PRECOMPILE
+#define COMM_ECUC_RB_RTE_IN_USE                                          STD_OFF
+#define ComMConf_ComMChannel_ComMChannel_Can_Network_0_Channel ((NetworkHandleType)0)
 
-#define CfgSwcServiceDcmDsld_NumChannelComM                                    1
-#define CfgSwcServiceDcmDsld_NumIdPduRx                                       2u
-#define CfgSwcServiceDcmDsld_IdServiceObd_0x01                           (0x01u)
-#define CfgSwcServiceDcmDsld_IdServiceObd_0x0A                           (0x0Au)
+#define ComMConf_ComMUser_ComMUser_Can_Network_0_Channel ((ComM_UserHandleType)(0))
 
 /******************************************************************************/
 /* MACROS                                                                     */

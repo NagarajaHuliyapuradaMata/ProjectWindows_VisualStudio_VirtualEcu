@@ -26,9 +26,17 @@ add_executable(
    ${PROJECT_SOURCE_DIR}/source/McalAdc/McalAdc.c
 #  ${PROJECT_SOURCE_DIR}/source/McalCan/McalCan.c
    ${PROJECT_SOURCE_DIR}/source/McalWdg/McalWdg.c
+   ${PROJECT_SOURCE_DIR}/source/LibAutosar/LibAutosar_MemCopy.c
    ${PROJECT_SOURCE_DIR}/source/LibAutosar/LibAutosar_MovingAverage.c
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceDcm/infSwcServiceDcmSwcServiceComM_Dsl.c
    ${PROJECT_SOURCE_DIR}/source/SwcServiceDcm/infSwcServiceDcmSwcServiceEcuM_Core.c
    ${PROJECT_SOURCE_DIR}/source/SwcServiceDcm/infSwcServiceDcmSwcServiceSchM_Core.c
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceDcm/infSwcServiceDcmSwcServicePduR_eCopyPduRx.c
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceDcm/infSwcServiceDcmSwcServicePduR_eCopyPduTx.c
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceDcm/infSwcServiceDcmSwcServicePduR_eStartReception.c
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceDcm/infSwcServiceDcmSwcServicePduR_vTpRxIndication.c
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceDcm/infSwcServiceDcmSwcServicePduR_vTpTxConfirmation.c
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceDet/SwcServiceDet.c
    ${PROJECT_SOURCE_DIR}/source/wrappers/wrappers.c
 )
 
@@ -43,6 +51,8 @@ target_include_directories(
 #  "${PROJECT_SOURCE_DIR}/source/McalCan"
    "${PROJECT_SOURCE_DIR}/source/McalMcu"
    "${PROJECT_SOURCE_DIR}/source/McalWdg"
+   "${PROJECT_SOURCE_DIR}/source/SwcServiceComM"
    "${PROJECT_SOURCE_DIR}/source/SwcServiceDcm"
+   "${PROJECT_SOURCE_DIR}/source/SwcServiceDet"
 )
 

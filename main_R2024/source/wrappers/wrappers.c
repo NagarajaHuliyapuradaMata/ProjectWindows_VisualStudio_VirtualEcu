@@ -25,6 +25,7 @@
 //#include "infMcalCanSwcServiceEcuM.h"
 #include "infMcalWdgSwcServiceEcuM.h"
 #include "infSwcServiceDcmSwcServiceEcuM.h"
+#include "infSwcServiceDcmSwcServicePduR.h"
 #include "infSwcServiceDcmSwcServiceSchM.h"
 
 int main(void){
@@ -34,9 +35,15 @@ int main(void){
    infSwcServiceDcmSwcServiceEcuM_vInitFunction(0);
 
    while(1){
-      infSwcServiceDcmSwcServiceSchM_vMainFunction();
-      infSwcApplDcmSwcServiceSchM_vMainFunction();
-      infSwcApplDcmSwcServiceSchM_vRunnableIncNonceCounter();
+      /* SwcServiceDcm / SwcApplDcm */
+      (void)infSwcServiceDcmSwcServicePduR_eCopyPduRx(0, 0, 0);
+      (void)infSwcServiceDcmSwcServicePduR_eCopyPduTx(0, 0, 0, 0);
+      (void)infSwcServiceDcmSwcServicePduR_eStartReception(0, 0, 0, 0);
+            infSwcServiceDcmSwcServicePduR_vTpRxIndication(0, 0);
+            infSwcServiceDcmSwcServicePduR_vTpTxConfirmation(0, 0);
+            infSwcServiceDcmSwcServiceSchM_vMainFunction();
+            infSwcApplDcmSwcServiceSchM_vMainFunction();
+            infSwcApplDcmSwcServiceSchM_vRunnableIncNonceCounter();
    }
    return 0;
 }
