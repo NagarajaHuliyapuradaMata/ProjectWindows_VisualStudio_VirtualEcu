@@ -66,8 +66,8 @@ FUNC(boolean, SWCSERVICEDCM_CODE) SwcApplDcm_GetPositiveResponseTrigger(void){
 
 #if(CfgSwcServiceDcmDsld_fCallApplRxRequest != CfgSwcServiceDcm_dbDisable)
 FUNC(void, SWCSERVICEDCM_CODE) infSwcApplDcmSwcServiceDcm_vCopyPduRx(
-      PduIdType     ltIdPdu
-   ,  PduLengthType ltLengthPdu
+      Type_tIdPdu     ltIdPdu
+   ,  Type_tLengthPdu ltLengthPdu
 ){
    (void)ltIdPdu;
    (void)ltLengthPdu;

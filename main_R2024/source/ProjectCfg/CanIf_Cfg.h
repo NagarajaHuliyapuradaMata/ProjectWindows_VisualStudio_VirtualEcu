@@ -133,7 +133,7 @@
 #define CANIF_INSTANCE_ID                                                      1
 #define CANIF_VARIANT_INFO                                                     1
 
-#define CfgEcuabCanIf_CanNetwork0                                              0 /* Network - Local CAN body*/
+#define CfgEcuabCanIf_CanNetwork0                                              0
 #define CfgEcuabCanIf_CanNetwork0_CanNode0_CanController0                     0u
 #define CfgEcuabCanIf_CanNetwork0_CanNode0_TxStdMailBox_Hth1                  0u
 #define CfgEcuabCanIf_CanNetwork0_CanNode0_TxStdMailBox_Hth2                  1u
@@ -174,16 +174,16 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 typedef struct{
-   P2VAR(uint8,TYPEDEF,CANIF_APPL_DATA) SduDataPtr;
-   PduLengthType                        SduLength;
+   P2VAR(uint8,TYPEDEF,CANIF_APPL_DATA) ptru8DataSdu;
+   Type_tLengthPdu                      tLengthSdu;
    Can_IdType                           SduCanId;
-}CanIf_PduInfoType;
+}CanIf_Type_stInfoPdu;
 
 typedef struct{
-   Can_IdType CanId;
-   PduIdType  swPduHandle;
-   uint8      SduLength;
-   uint8      BufferIndex;
+   Can_IdType  CanId;
+   Type_tIdPdu swPduHandle;
+   uint8       tLengthSdu;
+   uint8       BufferIndex;
 }CanIf_Cfg_CanIdBuffer_tst;
 
 typedef enum{
@@ -261,7 +261,7 @@ typedef struct{
    P2FUNC(void, TYPEDEF, User_ControllerErrorPassive) (VAR(uint8,AUTOMATIC));
 #endif
 #if (CANIF_CFG_DLC_CHECK != STD_OFF)
-   P2FUNC(CanIf_DlcErrorReturnType, TYPEDEF, Dlc_Error_Notification) (VAR(PduIdType,AUTOMATIC) ,VAR(uint8,AUTOMATIC));
+   P2FUNC(CanIf_DlcErrorReturnType, TYPEDEF, Dlc_Error_Notification) (VAR(Type_tIdPdu,AUTOMATIC) ,VAR(uint8,AUTOMATIC));
 #endif
 }CanIf_CallbackFuncType;
 
@@ -274,12 +274,12 @@ typedef struct{
 #endif
 
 typedef struct{
-   P2FUNC(void, TYPEDEF, CddRxIndication)(VAR(PduIdType, AUTOMATIC),P2CONST(PduInfoType, AUTOMATIC,CANIF_APPL_CONST));
+   P2FUNC(void, TYPEDEF, CddRxIndication)(VAR(Type_tIdPdu, AUTOMATIC),P2CONST(Type_stInfoPdu, AUTOMATIC,CANIF_APPL_CONST));
 } CanIf_CddRxCbk_Prototype;
 
 typedef struct{
    CanIf_Prv_HrhType_ten   HrhInfo_e;
-   PduIdType               PduIdx_t;
+   Type_tIdPdu             PduIdx_t;
    uint32                  NumRxPdus_u32;
    boolean                 HrhRangeMask_b;
    uint8                   ControllerId_u8;
@@ -315,19 +315,19 @@ typedef struct{
 #if (CANIF_RB_CALIBRATION == STD_ON)
    P2FUNC(Can_IdType, TYPEDEF,  getCanId)(void);
 #endif
-   PduIdType Hrhref_t;
-   PduIdType RxPduTargetId_t;
+   Type_tIdPdu Hrhref_t;
+   Type_tIdPdu RxPduTargetId_t;
 #if (CANIF_RB_CHANGERXPDUID_API != STD_OFF)
-   PduIdType RxPduType;
+   Type_tIdPdu RxPduType;
 #endif
 }CanIf_Cfg_RxPduType_tst;
 
 typedef struct{
-   P2FUNC(void, TYPEDEF, CanIfRxPduIndicationName) (VAR(PduIdType,AUTOMATIC), P2CONST(PduInfoType, TYPEDEF, CANIF_APPL_DATA ));
+   P2FUNC(void, TYPEDEF, CanIfRxPduIndicationName) (VAR(Type_tIdPdu,AUTOMATIC), P2CONST(Type_stInfoPdu, TYPEDEF, CANIF_APPL_DATA ));
 }CanIf_RxCbk_Prototype;
 
 typedef struct{
-   P2FUNC(void, TYPEDEF, CanIfRxPduUserRxIndicationUser) (VAR(PduIdType,AUTOMATIC), P2CONST(CanIf_PduInfoType, TYPEDEF, CANIF_APPL_DATA ));
+   P2FUNC(void, TYPEDEF, CanIfRxPduUserRxIndicationUser) (VAR(Type_tIdPdu,AUTOMATIC), P2CONST(CanIf_Type_stInfoPdu, TYPEDEF, CANIF_APPL_DATA ));
 }CanIf_RxUSERCbk_Prototype;
 
 #if (CANIF_CFG_RX_RANGE_CONFIG == STD_ON)
@@ -339,7 +339,7 @@ typedef struct{
    Can_IdType      LowerCanId_t;
    Can_IdType      UpperCanId_t;
 #endif
-   PduIdType       PduIdx_t;
+   Type_tIdPdu     PduIdx_t;
 }CanIf_RxPduRangeConfigType_tst;
 #endif
 
@@ -350,12 +350,12 @@ typedef struct{
 #else
    Can_IdType      CanId_t;
 #endif
-   PduIdType       PduIdx_t;
+   Type_tIdPdu     PduIdx_t;
 }CanIf_RxPduListConfigType_tst;
 #endif
 
 typedef struct{
-   P2FUNC(void, CANIF_APPL_CODE, UserTxConfirmation)(PduIdType);
+   P2FUNC(void, CANIF_APPL_CODE, UserTxConfirmation)(Type_tIdPdu);
 } CanIf_TxCbk_Prototype;
 
 typedef struct{
@@ -374,15 +374,15 @@ typedef struct{
 }CanIf_Cfg_CtrlConfig_tst;
 
 typedef struct{
-   const CanIf_Cfg_CtrlConfig_tst   *CanIf_CtrlConfigPtr;
-   Can_HwHandleType              CanObjectId;
-   CanIf_Cfg_CanHandleType_ten   CanHandleType;
+   const CanIf_Cfg_CtrlConfig_tst* CanIf_CtrlConfigPtr;
+   Can_HwHandleType                CanObjectId;
+   CanIf_Cfg_CanHandleType_ten     CanHandleType;
 }CanIf_Cfg_HthConfig_tst;
 
 typedef struct{
    const CanIf_Cfg_HthConfig_tst   *CanIf_HthConfigPtr;
 #if (CANIF_PUBLIC_TXBUFFERING == STD_ON)
-   uint8*                      DataBuf;
+   uint8*                       DataBuf;
    CanIf_Cfg_CanIdBuffer_tst*   CanIdBuf;
    uint32                       CanIfBufferId;
    uint8                        CanIfBufferSize;
@@ -394,14 +394,14 @@ typedef struct{
    const CanIf_Cfg_TxBufferConfig_tst   *CanIf_TxBufferConfigPtr;
 #if(CANIF_METADATA_SUPPORT == STD_ON)
    uint32                            TxPduCanIdMask;
-   uint8                             MetaDataLength;          /*Max value = 4*/
+   uint8                             MetaDataLength;
 #endif
-   PduIdType                         TxPduId;
-   PduIdType                         TxPduTargetPduId;
-   PduIdType                         TxPduType;
+   Type_tIdPdu                       TxPduId;
+   Type_tIdPdu                       TxPduTargetPduId;
+   Type_tIdPdu                       TxPduType;
    CanIf_Cfg_TxPduCanIdType_ten      TxPduCanIdType;
    CanIf_Cfg_UserType_ten            TxPduTxUserUL;
-   P2FUNC(void, CANIF_APPL_CODE, UserTxConfirmation)(PduIdType);
+   P2FUNC(void, CANIF_APPL_CODE, UserTxConfirmation)(Type_tIdPdu);
    Can_IdType                        TxPduCanId;
 #if (CANIF_PUBLIC_PN_SUPPORT == STD_ON)
    boolean                           TxPduPnFilterPdu;
@@ -410,7 +410,7 @@ typedef struct{
    boolean                           TxPduReadNotifyStatus;
 #endif
 #if(CANIF_TRIGGERTRANSMIT_SUPPORT== STD_ON)
-   P2FUNC(Std_ReturnType, CANIF_APPL_CODE, UserTriggerTransmit)(PduIdType, PduInfoType*);
+   P2FUNC(Std_ReturnType, CANIF_APPL_CODE, UserTriggerTransmit)(Type_tIdPdu, Type_stInfoPdu*);
    boolean                           TxPduTriggerTransmit;
 #endif
 
@@ -427,24 +427,24 @@ typedef enum{
 
 typedef struct {
    uint16 PipeId_u16;
-   uint16 SrcCoreId_u16;        /* Pipe Source core ID */
-   uint16 DestCoreId_u16;       /* Pipe Destination core ID */
-   uint32 FifoRamSizeBytes_u32; /* Size of the associated FIFO in bytes */
-   uint32 DestFlags_u32;        /* The properties of the receiver on the destination core: (BIT0, BIT1) = {0x0 = "POLLING"; 0x1 = "Task"; 0x2 = "SWI"} */
-   TaskType DestRecvId;       /* TaskID of the receiver on the destination core. */
-   void* PipeFifoRam_pv;        /* FIFO for PIPE. It is placed either in shared RAM or in the detstination core local RAM */
-   CanIf_XCore_PipeProcesingType PipeType; /*Pipe proccessing type */
+   uint16 SrcCoreId_u16;
+   uint16 DestCoreId_u16;
+   uint32 FifoRamSizeBytes_u32;
+   uint32 DestFlags_u32;
+   TaskType DestRecvId;
+   void* PipeFifoRam_pv;
+   CanIf_XCore_PipeProcesingType PipeType;
 }CanIf_XCore_PipeConfigType_st;
 
 
 typedef struct {
-   uint8 CanIf_XCoreCanControllerCoreAffinity[CANIF_XCORE_NUMCANCTRL];                     /* Used to identify the destination core of a specific Can transmit operation based on the Controller id. */
-   uint8 CanIf_XCoreUserTypeCoreAffinity[MAX_USER_TYPE];                                              /* Used to identify the destination core of a specific Tx confirmation/Rx indication based on the configured UserType. */
-   uint16 CanIf_XCoreTxPipeMatrix[CANIF_XCORE_NUMCORES][CANIF_XCORE_NUMCORES];             /* Used to determine the Tx pipe id based on the src core id and destination core id. */
-   uint16 CanIf_XCoreTxConfirmationPipeMatrix[CANIF_XCORE_NUMCORES][CANIF_XCORE_NUMCORES]; /* Used to determine the Tx confirmation pipe id based on the src core id and destination core id. */
-   uint16 CanIf_XCoreRxPipeMatrix[CANIF_XCORE_NUMCORES][CANIF_XCORE_NUMCORES];             /* Used to determine the Rx pipe id based on the src core id and destination core id. */
-   uint16 NumPipes_u16;                                                                    /* Number of configured pipes */
-   CanIf_XCore_PipeConfigType_st PipeConfigs_ast[CANIF_XCORE_MAX_NUM_PIPES];               /* Holds the pipe configurations */
+   uint8 CanIf_XCoreCanControllerCoreAffinity[CANIF_XCORE_NUMCANCTRL];
+   uint8 CanIf_XCoreUserTypeCoreAffinity[MAX_USER_TYPE];
+   uint16 CanIf_XCoreTxPipeMatrix[CANIF_XCORE_NUMCORES][CANIF_XCORE_NUMCORES];
+   uint16 CanIf_XCoreTxConfirmationPipeMatrix[CANIF_XCORE_NUMCORES][CANIF_XCORE_NUMCORES];
+   uint16 CanIf_XCoreRxPipeMatrix[CANIF_XCORE_NUMCORES][CANIF_XCORE_NUMCORES];
+   uint16 NumPipes_u16;
+   CanIf_XCore_PipeConfigType_st PipeConfigs_ast[CANIF_XCORE_MAX_NUM_PIPES];
 }CanIf_XCore_ConfigType;
 #endif
 
@@ -452,11 +452,11 @@ typedef struct{
 #if(CANIF_CFG_RX_FEATURE_ENABLED== STD_ON)
    P2CONST(CanIf_Cfg_Hrhtype_tst,TYPEDEF,CANIF_CFG_CONST)    HrhConfig_pcst;
    P2CONST(CanIf_Cfg_RxPduType_tst,TYPEDEF,CANIF_CFG_CONST)  RxPduConfig_pcst;
-   VAR(PduIdType,TYPEDEF)                NumCanRxPduId_t;
+   VAR(Type_tIdPdu,TYPEDEF)                NumCanRxPduId_t;
 #endif
    VAR(uint8,TYPEDEF)                    NumCanCtrl_u8;
 #if(CANIF_CFG_RX_FEATURE_ENABLED== STD_ON)
-   VAR(PduIdType,TYPEDEF)                NumCddRxPdus_t;
+   VAR(Type_tIdPdu,TYPEDEF)                NumCddRxPdus_t;
 #if (CANIF_CFG_RX_RANGE_CONFIG == STD_ON)
    P2CONST(CanIf_RxPduRangeConfigType_tst,TYPEDEF,CANIF_CFG_CONST)RangeCfg_tpst;
 #endif

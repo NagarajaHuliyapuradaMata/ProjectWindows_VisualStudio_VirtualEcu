@@ -15,7 +15,7 @@
 /* certain responsibilities, if you distribute copies of the software, or if  */
 /* you modify it: responsibilities to respect the freedom of others.          */
 /*                                                                            */
-/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/* All rights reserved. Copyright ï¿½ 1982 Raajnaag HULIYAPURADA MATA           */
 /*                                                                            */
 /* Always refer latest software version from:                                 */
 /* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
@@ -70,10 +70,10 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 typedef struct{
-   uint8*        SduDataPtr;
-   uint8*        MetaDataPtr;
-   PduLengthType SduLength;
-}PduInfoType;
+   uint8 *ptru8DataSdu;
+   uint8 *ptru8DataMeta;
+   Type_tLengthPdu tLengthSdu;
+}Type_stInfoPdu;
 
 typedef uint8   PNCHandleType;
 
@@ -102,7 +102,7 @@ typedef enum{
 
 typedef struct{
    TpDataStateType TpDataState;
-   PduLengthType   TxTpDataCnt;
+   Type_tLengthPdu   TxTpDataCnt;
 }RetryInfoType;
 
 typedef uint8   NetworkHandleType;

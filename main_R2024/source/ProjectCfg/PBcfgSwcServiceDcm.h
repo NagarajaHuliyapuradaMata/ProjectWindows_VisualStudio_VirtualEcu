@@ -41,7 +41,7 @@
 /******************************************************************************/
 typedef struct{
    const uint8*                               ptr_rxtable_pca;
-   const PduIdType*                           ptr_txtable_pca;
+   const Type_tIdPdu*                         ptr_txtable_pca;
    const Type_SwcServiceDcmDsld_stConnection* ptr_conntable_pcs;
    const Type_SwcServiceDcmDsld_stProtocol*   protocol_table_pcs;
    const Type_SwcServiceDcmDsld_stTableSid*   sid_table_pcs;

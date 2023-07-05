@@ -59,8 +59,8 @@
 /******************************************************************************/
 #if(CfgSwcServiceDcmDsld_fCallApplRxRequest != CfgSwcServiceDcm_dbDisable)
 extern FUNC(void, SWCSERVICEDCM_CODE) infSwcApplDcmSwcServiceDcm_vCopyPduRx(
-      PduIdType     ltIdPdu
-   ,  PduLengthType ltLengthPdu
+      Type_tIdPdu     ltIdPdu
+   ,  Type_tLengthPdu ltLengthPdu
 );
 #endif
 
