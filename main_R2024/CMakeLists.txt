@@ -37,6 +37,7 @@ add_executable(
    ${PROJECT_SOURCE_DIR}/source/SwcServiceDcm/infSwcServiceDcmSwcServicePduR_vTpRxIndication.c
    ${PROJECT_SOURCE_DIR}/source/SwcServiceDcm/infSwcServiceDcmSwcServicePduR_vTpTxConfirmation.c
    ${PROJECT_SOURCE_DIR}/source/SwcServiceDet/SwcServiceDet.c
+   ${PROJECT_SOURCE_DIR}/source/wrappers/SwcApplDcm.c
    ${PROJECT_SOURCE_DIR}/source/wrappers/wrappers.c
 )
 

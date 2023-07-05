@@ -1,7 +1,5 @@
-#ifndef _CFGSWCSERVICEDCM_H
-#define _CFGSWCSERVICEDCM_H
 /******************************************************************************/
-/* File   : CfgSwcServiceDcm.h                                                */
+/* File   : SwcApplDcm.c                                                      */
 /*                                                                            */
 /* Author : Raajnaag HULIYAPURADA MATA                                        */
 /*                                                                            */
@@ -15,40 +13,24 @@
 /* certain responsibilities, if you distribute copies of the software, or if  */
 /* you modify it: responsibilities to respect the freedom of others.          */
 /*                                                                            */
-/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/* All rights reserved. Copyright � 1982 Raajnaag HULIYAPURADA MATA           */
 /*                                                                            */
 /* Always refer latest software version from:                                 */
-/* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
+/* git@github.com:RaajnaagHuliyapuradaMata/<module_name>.git                  */
 /*                                                                            */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
+#include "Std_Types.h"
+
+#include "infSwcApplDcmMcalMcu.h"
+#include "infSwcApplDcmSwcServiceDcm.h"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define CfgSwcServiceDcm_dbEnable                                             1u
-#define CfgSwcServiceDcm_dbDisable                                            0u
-#define CfgSwcServiceDcm_fAdaptiveDiagnostics         CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcm_fSharingPduRx                CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcm_fProcessingParallel          CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcm_fQueueBuffer                 CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcm_fRoe                         CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcm_fRdpi                        CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcm_fPagedBuffer                 CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcm_fKwp                         CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcm_fPBcfg                       CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcmDsld_fModeRuleService         CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcmDsld_fModeRuleSubService      CfgSwcServiceDcm_dbDisable
-#define CfgSwcServiceDcmDsld_fCallApplRxRequest       CfgSwcServiceDcm_dbEnable
-
-#define CfgSwcServiceDcmDsld_NumChannelComM                                    1
-#define CfgSwcServiceDcmDsld_NumIdPduRx                                       2u
-#define CfgSwcServiceDcmDsld_NumIdPduTx                                       1u
-#define CfgSwcServiceDcmDsld_IdServiceObd_0x01                           (0x01u)
-#define CfgSwcServiceDcmDsld_IdServiceObd_0x0A                           (0x0Au)
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -69,12 +51,29 @@
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
+static boolean bSendPositiveResponse = FALSE;
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
+FUNC(void, SWCSERVICEDCM_CODE) infSwcApplDcmMcalMcu_vTriggerPositiveResponse(void){
+   bSendPositiveResponse = TRUE;
+}
+
+FUNC(boolean, SWCSERVICEDCM_CODE) SwcApplDcm_GetPositiveResponseTrigger(void){
+   return bSendPositiveResponse;
+}
+
+#if(CfgSwcServiceDcmDsld_fCallApplRxRequest != CfgSwcServiceDcm_dbDisable)
+FUNC(void, SWCSERVICEDCM_CODE) infSwcApplDcmSwcServiceDcm_vCopyPduRx(
+      PduIdType     ltIdPdu
+   ,  PduLengthType ltLengthPdu
+){
+   (void)ltIdPdu;
+   (void)ltLengthPdu;
+}
+#endif
 
 /******************************************************************************/
 /* EOF                                                                        */
 /******************************************************************************/
-#endif
