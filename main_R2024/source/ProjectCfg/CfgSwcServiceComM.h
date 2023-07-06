@@ -42,7 +42,7 @@
 #define COMM_VARIANT_POSTBUILD_LOADABLE                                     0x01
 #define COMM_CONFIGURATION_VARIANT                       COMM_VARIANT_PRECOMPILE
 #define COMM_ECUC_RB_RTE_IN_USE                                          STD_OFF
-#define ComMConf_ComMChannel_ComMChannel_Can_Network_0_Channel ((NetworkHandleType)0)
+#define ComMConf_ComMChannel_ComMChannel_Can_Network_0_Channel ((Type_StackCom_tHandleNetwork)0)
 
 #define ComMConf_ComMUser_ComMUser_Can_Network_0_Channel ((ComM_UserHandleType)(0))
 

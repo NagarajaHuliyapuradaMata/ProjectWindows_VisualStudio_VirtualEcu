@@ -40,13 +40,13 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 typedef struct{
-   const uint8*                               ptr_rxtable_pca;
-   const Type_tIdPdu*                         ptr_txtable_pca;
-   const Type_SwcServiceDcmDsld_stConnection* ptr_conntable_pcs;
-   const Type_SwcServiceDcmDsld_stProtocol*   protocol_table_pcs;
-   const Type_SwcServiceDcmDsld_stTableSid*   sid_table_pcs;
-   const uint8*                               session_lookup_table_pcau8;
-   const uint8*                               security_lookup_table_pcau8;
+   const uint8*                               ptrcu8TableRx;
+   const Type_tIdPdu*                         ptrctTableIdPduTx;
+   const Type_SwcServiceDcmDsld_stConnection* ptrcstTableConnection;
+   const Type_SwcServiceDcmDsld_stProtocol*   ptrcstTableProtocol;
+   const Type_SwcServiceDcmDsld_stTableSid*   ptrcstTableIdService;
+   const uint8*                               ptrcu8TableSession;
+   const uint8*                               ptrcu8TableSecurity;
 }Type_CfgSwcServiceDcmDsld_st;
 
 /******************************************************************************/

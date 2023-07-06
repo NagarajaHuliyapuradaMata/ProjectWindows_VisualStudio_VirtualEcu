@@ -44,11 +44,11 @@
 #define CfgSwcServiceDcmDsld_fModeRuleSubService      CfgSwcServiceDcm_dbDisable
 #define CfgSwcServiceDcmDsld_fCallApplRxRequest       CfgSwcServiceDcm_dbEnable
 
-#define CfgSwcServiceDcmDsld_NumChannelComM                                    1
-#define CfgSwcServiceDcmDsld_NumIdPduRx                                       2u
-#define CfgSwcServiceDcmDsld_NumIdPduTx                                       1u
-#define CfgSwcServiceDcmDsld_IdServiceObd_0x01                           (0x01u)
-#define CfgSwcServiceDcmDsld_IdServiceObd_0x0A                           (0x0Au)
+#define CfgSwcServiceDcmDsld_dNumChannelComM                                   1
+#define CfgSwcServiceDcmDsld_dNumIdPduRx                                      2u
+#define CfgSwcServiceDcmDsld_dNumIdPduTx                                      1u
+#define CfgSwcServiceDcmDsld_dIdServiceObd_0x01                          (0x01u)
+#define CfgSwcServiceDcmDsld_dIdServiceObd_0x0A                          (0x0Au)
 
 /******************************************************************************/
 /* MACROS                                                                     */
