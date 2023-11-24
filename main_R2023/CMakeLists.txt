@@ -19,7 +19,7 @@ add_definitions(
 )
 
 add_executable(
-   Windows_VisualStudio_VirtualEcu_R2023
+   ${PROJECT_NAME}
 
    ${PROJECT_SOURCE_DIR}/source/wrappers/wrappers.cpp
 
@@ -58,7 +58,7 @@ add_executable(
 )
 
 target_include_directories(
-   Windows_VisualStudio_VirtualEcu_R2023 PUBLIC
+   ${PROJECT_NAME} PUBLIC
    "${PROJECT_SOURCE_DIR}/source/common"
    "${PROJECT_SOURCE_DIR}/source/ProjectCompiler"
    "${PROJECT_SOURCE_DIR}/source/ProjectCfg"
