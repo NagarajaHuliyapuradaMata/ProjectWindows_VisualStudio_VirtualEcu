@@ -31,7 +31,7 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define COMTYPE_VENDOR_ID                                                0x0006u
+#define COMTYPE_VENDOR_ID                                                0x0001u
 #define COMTYPE_MODULE_ID                                                0x00C4u
 
 #define COMTYPE_SW_MAJOR_VERSION                                           0x08u
